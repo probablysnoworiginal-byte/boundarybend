@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+public/
+.quartz/
+.quartz-cache/
+prof/
+tsconfig.tsbuildinfo
+.env
+.env.*
+!.env.example

@@ -1,0 +1,171 @@
+@use "./variables.scss" as *;
+
+body[data-slug="index"] article {
+  --bb-gold: 216, 170, 86;
+  --bb-teal: 68, 191, 168;
+  --bb-blue: 86, 169, 215;
+  --bb-violet: 158, 128, 223;
+}
+
+body[data-slug="index"] .callout {
+  border-radius: 14px;
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"] {
+  --callout-color: var(--bb-gold);
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 1.5rem;
+  padding: clamp(1.4rem, 3vw, 3rem);
+  border: 1px solid rgba(var(--bb-gold), 0.3);
+  background:
+    linear-gradient(120deg, rgba(12, 22, 30, 0.97), rgba(22, 42, 47, 0.92)),
+    radial-gradient(circle at 80% 10%, rgba(var(--bb-gold), 0.24), transparent 40%);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.2);
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"]::after {
+  content: "";
+  position: absolute;
+  inset: -60% -20% auto auto;
+  width: 430px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(var(--bb-gold), 0.18);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 34px rgba(var(--bb-teal), 0.035),
+    0 0 0 74px rgba(var(--bb-gold), 0.025);
+  pointer-events: none;
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"] > .callout-title,
+body[data-slug="index"] .callout[data-callout="multi-column"] > .callout-title {
+  display: none;
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"] h1 {
+  margin: 0;
+  color: #f2d596;
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-shadow: 0 6px 32px rgba(var(--bb-gold), 0.18);
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"] h3 {
+  max-width: 760px;
+  margin: 1.2rem 0 2rem;
+  color: #c6d8da;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 430;
+  line-height: 1.5;
+}
+
+body[data-slug="index"] .callout[data-callout="bb-hero"] code {
+  display: inline-block;
+  margin: 0.2rem 0.18rem;
+  padding: 0.34rem 0.62rem;
+  border: 1px solid rgba(var(--bb-gold), 0.2);
+  border-radius: 999px;
+  color: #e4c888;
+  background: rgba(5, 12, 17, 0.46);
+  font-family: var(--bodyFont);
+  font-size: 0.76rem;
+}
+
+body[data-slug="index"] .callout[data-callout="multi-column"] {
+  --callout-color: 0, 0, 0;
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-slug="index"] .callout[data-callout="multi-column"] > .callout-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 0.9rem;
+}
+
+body[data-slug="index"] .callout[data-callout="multi-column"] > .callout-content > .callout {
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid rgba(var(--callout-color), 0.24);
+  background: linear-gradient(145deg, rgba(var(--callout-color), 0.085), rgba(var(--callout-color), 0.025));
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+body[data-slug="index"] .callout[data-callout="multi-column"] > .callout-content > .callout:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--callout-color), 0.58);
+  box-shadow: 0 12px 30px rgba(24, 34, 42, 0.1);
+}
+
+body[data-slug="index"] .callout[data-callout="world"],
+body[data-slug="index"] .callout[data-callout="haven"] {
+  --callout-color: var(--bb-teal);
+}
+
+body[data-slug="index"] .callout[data-callout="design"],
+body[data-slug="index"] .callout[data-callout="theme"] {
+  --callout-color: var(--bb-blue);
+}
+
+body[data-slug="index"] .callout[data-callout="project"] {
+  --callout-color: var(--bb-violet);
+}
+
+body[data-slug="index"] .callout[data-callout="prototype"] {
+  --callout-color: var(--bb-gold);
+}
+
+body[data-slug="index"] .callout[data-callout="atlas"] {
+  --callout-color: 81, 169, 183;
+  background: linear-gradient(120deg, rgba(69, 167, 164, 0.09), rgba(104, 98, 177, 0.09));
+}
+
+body[data-slug="index"] .callout[data-callout="time"] {
+  --callout-color: var(--bb-violet);
+}
+
+body[data-slug="index"] .callout[data-callout="multi-column"] .callout-content a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.62rem;
+  border: 1px solid rgba(var(--callout-color), 0.28);
+  border-radius: 999px;
+  background: rgba(var(--callout-color), 0.09);
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  body[data-slug="index"] .callout[data-callout="bb-hero"] {
+    padding: 1.5rem;
+  }
+
+  body[data-slug="index"] .callout[data-callout="bb-hero"] h1 {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  body[data-slug="index"] .callout[data-callout="bb-hero"] h1 {
+    font-size: 1.75rem;
+    letter-spacing: 0.015em;
+  }
+}
+
+@media (max-width: 800px) {
+  .right.sidebar .graph {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-slug="index"] .callout {
+    transition: none !important;
+  }
+}
